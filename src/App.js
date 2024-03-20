@@ -181,6 +181,8 @@ function App() {
                     >
                         <option value={"python"}>Python</option>
                         <option value={"cpp"}>C++</option>
+                        <option value={"java"}>Java</option>
+                        <option value={"javascript"}>Javascript</option>
                     </select>
                 </button>
                 {/* run button */}
