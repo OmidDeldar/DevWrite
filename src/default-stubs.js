@@ -17,4 +17,14 @@ sys.stdin  = open(sys.argv[1])
 
 print("Hello World !!!")`;
 
+
+stubs.java = `public class Main
+{
+	public static void main(String[] args) {
+		System.out.println("Hello World");
+	}
+}`
+
+stubs.javascript = `print('Hello World');`
+
 export default stubs;
