@@ -72,21 +72,23 @@ function App() {
 
     const handleSubmit = async () => {
         const payload = {
-            language: language,
-            code: code,
+            language: 76,
+            source_code: code,
             input: input,
         };
         try {
+            console.log(payload);
             setJobId("");
             setStatus("Running");
             setJobDetails(null);
             setOutput(`Code Execution Status: Running`);
             const { data } = await axios.post(
-                "http://localhost:5000/run",
+                "http://127.0.0.1:4600/Judge0/create/submission",
                 payload
             );
-            // console.log(data);
-            setJobId(data.jobId);
+            console.log(data);
+            setJobId(data.token);
+            
 
             let intervalId;
 
@@ -94,28 +96,30 @@ function App() {
                 setStatus("Running");
                 setOutput(`Code Execution Status: Running`);
                 const { data: dataRes } = await axios.get(
-                    "http://localhost:5000/status",
-                    { params: { id: data.jobId } }
+                    "http://127.0.0.1:4600/Judge0/get/submission",
+                    { params: { token: data.token } }
                 );
-                const { success, job, error } = dataRes;
-                if (success) {
+                const { status, output, error } = dataRes;
+                console.log(data)
+                console.log(dataRes)
+                if (status) {
                     // console.log(dataRes);
-                    setJobDetails(job);
+                    // setJobDetails(job);
                     // console.log(jobDetails);
-                    const { status: jobStatus, output: jobOutput } = job;
-                    setStatus(jobStatus);
-                    if (jobStatus === "Running") {
+                    // const { status: jobStatus, output: jobOutput } = job;
+                    setStatus(status);
+                    if (status === "Running") {
                         setOutput(`Code Execution Status: Running`);
                         return;
-                    } else if (jobStatus === "Success") {
+                    } else if (status === "Accepted") {
                         setOutput(
-                            `Code Execution Status: ${jobStatus}\n\n${jobOutput}`
+                            `Code Execution Status: ${status}\n\n${output}`
                         );
                     } else {
-                        const errorObject = JSON.parse(jobOutput);
+                        const errorObject = JSON.parse(output);
                         // console.log(errorObject);
                         setOutput(
-                            `Code Execution Status: ${jobStatus}\n\n${errorObject.stderr}`
+                            `Code Execution Status: ${output}\n\n${errorObject.stderr}`
                         );
                     }
                     clearInterval(intervalId);
