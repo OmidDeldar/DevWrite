@@ -83,12 +83,14 @@ function App() {
             setJobDetails(null);
             setOutput(`Code Execution Status: Running`);
             const { data } = await axios.post(
-                "http://127.0.0.1:4600/Judge0/create/submission",
+                "http://127.0.0.1:4600/judge0/create/submission",
                 payload
             );
             console.log(data);
             setJobId(data.token);
-            
+            if(data.error){
+                setOutput(`Code Execution Status: ${data.error}`);
+            }
 
             let intervalId;
 
@@ -96,7 +98,7 @@ function App() {
                 setStatus("Running");
                 setOutput(`Code Execution Status: Running`);
                 const { data: dataRes } = await axios.get(
-                    "http://127.0.0.1:4600/Judge0/get/submission",
+                    "http://127.0.0.1:4600/judge0/get/submission",
                     { params: { token: data.token } }
                 );
                 const { status, output, error } = dataRes;
@@ -116,10 +118,10 @@ function App() {
                             `Code Execution Status: ${status}\n\n${output}`
                         );
                     } else {
-                        const errorObject = JSON.parse(output);
+                        // const errorObject = JSON.parse(output);
                         // console.log(errorObject);
                         setOutput(
-                            `Code Execution Status: ${output}\n\n${errorObject.stderr}`
+                            `Code Execution Status: ${status}\n\n${error}`
                         );
                     }
                     clearInterval(intervalId);
