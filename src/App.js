@@ -143,6 +143,17 @@ function App() {
         }
     };
 
+    // Function to handle saving code
+    const handleSave = () => {
+        // Retrieve code and language
+        const codeToSave = code;
+        const selectedLanguage = language;
+
+        // You can implement the saving logic here, for example, saving to local storage
+        localStorage.setItem(selectedLanguage, codeToSave);
+        alert("Code saved successfully!");
+    };
+
     return (
         <div id="App" className="App-dark">
             <div id="header" className="header-dark">
@@ -167,6 +178,11 @@ function App() {
             </div>
 
             <div className="secondary-nav-items">
+                            {/* Save button */}
+            <button className="btn save-btn" onClick={handleSave}>
+                <i className="fas fa-save fa-fade save-icon" aria-hidden="true"></i>
+                &nbsp; Save
+            </button>
                 <button className="btn logo-btn" disabled={true}>
                     <img
                         src={require(`${languageIcon}`)}
@@ -192,7 +208,7 @@ function App() {
                     </select>
                 </button>
                 {/* run button */}
-                <button className="btn run-btn" onClick={handleSubmit}>
+                <button className="btn run-btn" onClick={handleSubmit} >
                     <i
                         className="fas fa-play fa-fade run-icon"
                         aria-hidden="true"
