@@ -72,7 +72,7 @@ function App() {
 
     const handleSubmit = async () => {
         const payload = {
-            language: 76,
+            language: language,
             source_code: code,
             input: input,
         };
