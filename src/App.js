@@ -178,7 +178,7 @@ function App() {
             </div>
 
             <div className="secondary-nav-items">
-                            {/* Save button */}
+            {/* Save button */}
             <button className="btn save-btn" onClick={handleSave}>
                 <i className="fas fa-save fa-fade save-icon" aria-hidden="true"></i>
                 &nbsp; Save
