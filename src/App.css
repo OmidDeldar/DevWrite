@@ -284,3 +284,12 @@ option {
   font-weight: 500;
   border-radius: 8px;
 }
+
+.save-btn {
+  background-color: #ff6f61; /* Background color */
+  transition: background-color 0.3s ease-in-out; /* Smooth transition effect */
+}
+
+.save-btn:hover {
+  background-color: #fd5e53; /* Background color on hover */
+}
