@@ -145,12 +145,34 @@ function App() {
 
     // Function to handle saving code
     const handleSave = () => {
-        // Retrieve code and language
-        const codeToSave = code;
+        const languageExtensions = {
+            python: "py",
+            cpp: "cpp",
+            java: "java",
+            javascript: "js"
+        };
         const selectedLanguage = language;
-
-        // You can implement the saving logic here, for example, saving to local storage
-        localStorage.setItem(selectedLanguage, codeToSave);
+        const fileExtension = languageExtensions[selectedLanguage];
+        const fileName = `code.${fileExtension}`; // Constructing the filename
+        // const fileName = `code.cpp`; // Constructing the filename
+        // Creating a Blob with the code content
+        const blob = new Blob([code], { type: "text/plain" });
+    
+        // Creating a temporary URL for the Blob
+        const url = URL.createObjectURL(blob);
+    
+        // Creating an anchor element
+        const link = document.createElement("a");
+    
+        // Setting properties of the anchor element
+        link.href = url;
+        link.download = fileName; // Setting the download attribute to specify filename
+    
+        // Programmatically triggering the click event on the anchor element
+        link.click();
+    
+        // Cleanup: removing the anchor element and revoking the URL
+        URL.revokeObjectURL(url);
         alert("Code saved successfully!");
     };
 
@@ -158,7 +180,7 @@ function App() {
         <div id="App" className="App-dark">
             <div id="header" className="header-dark">
                 <h3 id="app-name" className="app-name-dark">
-                    <i className="fas fa-solid fa-cube" aria-hidden="true"></i>
+                    <i className="fas fa-solid fa-code" aria-hidden="true"></i>
                     &nbsp; Online Code Runner
                 </h3>
 
