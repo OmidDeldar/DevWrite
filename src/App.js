@@ -24,6 +24,7 @@ const outputOptions = {
     scrollBeyondLastLine: false,
     fontSize: "14px",
     lineDecorationsWidth: 5,
+    readOnly: true
 };
 
 function App() {
@@ -36,11 +37,21 @@ function App() {
     const [jobDetails, setJobDetails] = useState(null);
     const [editorMode, setEditorMode] = useState("vs-dark");
     const [languageIcon, setLanguageIcon] = useState("./resources/python.png");
+    const [fileName, setFileName] = useState("main.cpp"); // State to hold code file name
 
     useEffect(() => {
         setCode(stubs[language]);
         setOutput("// output");
         setLanguageIcon(`./resources/${language}.png`);
+        if (language === "python") {
+            setFileName("main.py");
+          } else if (language === "cpp") {
+            setFileName("main.cpp");
+          } else if (language === "java") {
+            setFileName("Main.java");
+          } else if (language === "javascript") {
+            setFileName("main.js");
+          }
     }, [language]);
 
     const toggleTheme = (idName) => {
@@ -198,7 +209,8 @@ function App() {
                     ></i>
                 </div>
             </div>
-
+            <div className="file-name-container"> {/* New container div */}
+            <span className="file-name">{fileName}</span> {/* New span element */}
             <div className="secondary-nav-items">
             {/* Save button */}
             <button className="btn save-btn" onClick={handleSave}>
@@ -238,7 +250,7 @@ function App() {
                     &nbsp; Run
                 </button>
             </div>
-
+            </div>
             <div className="editor">
                 <Editor
                     height="100%"
