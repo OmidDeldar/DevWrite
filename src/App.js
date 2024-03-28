@@ -29,7 +29,7 @@ const outputOptions = {
 function App() {
     const [language, setLanguage] = useState("python");
     const [code, setCode] = useState("");
-    const [input, setInput] = useState("// enter input here");
+    const [input, setInput] = useState("// input");
     const [output, setOutput] = useState("");
     const [status, setStatus] = useState("");
     const [jobId, setJobId] = useState("");
@@ -153,7 +153,7 @@ function App() {
         };
         const selectedLanguage = language;
         const fileExtension = languageExtensions[selectedLanguage];
-        const fileName = `code.${fileExtension}`; // Constructing the filename
+        const fileName = `main.${fileExtension}`; // Constructing the filename
         // const fileName = `code.cpp`; // Constructing the filename
         // Creating a Blob with the code content
         const blob = new Blob([code], { type: "text/plain" });
@@ -181,7 +181,7 @@ function App() {
             <div id="header" className="header-dark">
                 <h3 id="app-name" className="app-name-dark">
                     <i className="fas fa-solid fa-code" aria-hidden="true"></i>
-                    &nbsp; Online Code Runner
+                    &nbsp; DevWrite
                 </h3>
 
                 <div className="nav-right-options">
@@ -193,7 +193,7 @@ function App() {
                     ></i>
 
                     <i
-                        className="fas fa-solid fa-swatchbook tutorial-icon nav-icons fa-2x"
+                        className="fas fa-solid fa-bug tutorial-icon nav-icons fa-2x"
                         aria-hidden="true"
                     ></i>
                 </div>
@@ -259,7 +259,7 @@ function App() {
                         width="100%"
                         theme={editorMode}
                         defaultLanguage="plaintext"
-                        defaultValue={"// enter input here"}
+                        defaultValue={"// input"}
                         value={input}
                         options={inputOptions}
                         onChange={(e) => setInput(e)}
