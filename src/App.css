@@ -2,24 +2,25 @@
   --gradient1: linear-gradient(
       49deg,
       #fef4ff,
-      #e5ecee,
-      #e5ecee,
-      #c3ddf3,
-      #acc7f6,
-      #a1b9f9,
-      #d6c3ec,
-      #e1dffc,
-      #dadbfc,
-      #caccf4,
-      #cdacde
+      #d6e5ee,
+      #d6e5ee,
+      #afc3f3, 
+      #94b2f6, 
+      #8699ee, 
+      #bbaad8, 
+      #c8d7fc, 
+      #c8d7fc, 
+      #bfc9f4, 
+      #bfaad2,
+      #d681dc
   );
   --gradient2: linear-gradient(
       119deg,
-      cyan,
-      #52ab93,
-      #d3a450,
-      #a15090,
-      #c6388e
+      rgb(3, 107, 145),
+      #4B9E81,
+      #D1A358,
+      #A7538E,
+      #C7388D
   );
   --gradient3: linear-gradient(49deg, #ab4da3, #52ab93, #d3a450);
   --gradient4: linear-gradient(119deg, #52ab93, #d3a450, #a15090);
@@ -29,8 +30,8 @@
   --visual-studio-light: #ffffff;
   --visual-studio-dark: #1e1e1e;
   --light-yellow: #f6f6c9;
-  --yellowish: #ffbf00;
-  --sky: #52ab93;
+  --yellowish: #7E8E52;
+  --sky: #7267A2;
   --coral: #e56e67;
   --light-pink: #fea1bf;
   --light-green: #86c8bc;
@@ -203,11 +204,13 @@ select {
 .run-icon {
   background-color: var(--yellowish);
   color: black;
+  transition: background-color 0.3s ease-in-out; 
 }
 .run-btn {
   background-color: var(--yellowish);
   color: black;
   margin-left: 10px;
+  transition: background-color 0.3s ease-in-out; 
 }
 
 .run-btn:hover {
@@ -242,7 +245,7 @@ select {
   animation: bg-animation 3s infinite alternate;
 }
 .tutorial-icon:hover {
-  color: #c6388e;
+  color: #01765d;
 }
 /* Tutorial Icon styling ends */
 
@@ -286,10 +289,10 @@ option {
 }
 
 .save-btn {
-  background-color: #ff6f61; /* Background color */
-  transition: background-color 0.3s ease-in-out; /* Smooth transition effect */
+  background-color: #38726C; 
+  transition: background-color 0.3s ease-in-out; 
 }
 
 .save-btn:hover {
-  background-color: #fd5e53; /* Background color on hover */
+  background-color: #fd5e53; 
 }
