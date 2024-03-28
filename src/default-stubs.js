@@ -22,6 +22,6 @@ stubs.java = `public class Main
 	}
 }`
 
-stubs.javascript = `print('Hello World');`
+stubs.javascript = `console.log('Hello World');`
 
 export default stubs;
