@@ -149,9 +149,13 @@ select {
   border-radius: 10px;
 }
 
+.file-name-container {
+  display: flex; /* Enable flexbox layout */
+  align-items: center; /* Align vertically */
+}
+
 .secondary-nav-items {
-  display: table;
-  margin: 0 auto;
+  margin: 0 auto; /* Maintain original centering */
   margin-bottom: 2vh;
 }
 
@@ -295,4 +299,12 @@ option {
 
 .save-btn:hover {
   background-color: #fd5e53; 
+}
+
+.file-name {
+  background-color: #7fdbff; 
+  margin-right: 10px; /* Optional spacing between file name and buttons */
+  margin-left: 5px;
+  font-weight: bold; /* Optional styling */
+  padding: 3px;
 }
