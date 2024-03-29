@@ -1,7 +1,8 @@
 # Getting Started with DevWrite
 
 <p align="center">
-  <img src="https://github.com/OmidDeldar/DevWrite/tree/master/src/resources/front-page.png"  />
+  <!-- <img src="https://github.com/OmidDeldar/DevWrite/tree/master/src/resources/front-page.png"  /> -->
+  <img src="./src/resources/front-page.png" />
 </p>
 
 ## A Lightweight and Customizable React Code Editor
