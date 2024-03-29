@@ -1,5 +1,9 @@
 # Getting Started with DevWrite
 
+<p align="center">
+  <img src="https://github.com/OmidDeldar/DevWrite/tree/master/src/resources/front-page.png"  />
+</p>
+
 ## A Lightweight and Customizable React Code Editor
 
 This project is a React-based code editor that provides a user-friendly interface for writing and editing code. It offers several key features:
