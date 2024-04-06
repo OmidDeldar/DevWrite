@@ -303,8 +303,8 @@ option {
 
 .file-name {
   background-color: #7fdbff; 
-  margin-right: 10px; /* Optional spacing between file name and buttons */
+  margin-right: 10px; 
   margin-left: 5px;
-  font-weight: bold; /* Optional styling */
+  font-weight: bold;
   padding: 3px;
 }
