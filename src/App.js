@@ -162,8 +162,7 @@ function App() {
     const selectedLanguage = language;
     const fileExtension = languageExtensions[selectedLanguage];
     const fileName = `main.${fileExtension}`;
-    // const fileName = `code.cpp`; // Constructing the filename
-    // Creating a Blob with the code content
+    
     const blob = new Blob([code], { type: "text/plain" });
 
     const url = URL.createObjectURL(blob);
