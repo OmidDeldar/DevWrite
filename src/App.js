@@ -114,12 +114,8 @@ function App() {
           { params: { token: data.token } }
         );
         const { status, output, error } = dataRes;
-        // console.log(data)
-        // console.log(dataRes)
         if (status) {
-          // console.log(dataRes);
           // setJobDetails(job);
-          // console.log(jobDetails);
           // const { status: jobStatus, output: jobOutput } = job;
           setStatus(status);
           if (status === "Running") {
@@ -129,14 +125,11 @@ function App() {
             setOutput(`Code Execution Status: ${status}\n\n${output}`);
           } else {
             // const errorObject = JSON.parse(output);
-            // console.log(errorObject);
             setOutput(`Code Execution Status: ${status}\n\n${error}`);
           }
           clearInterval(intervalId);
         } else {
-          // console.log(dataRes);
           setStatus("Error !!! ");
-          // console.error(error);
           setOutput(error);
           clearInterval(intervalId);
         }
