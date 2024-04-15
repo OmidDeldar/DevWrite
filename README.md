@@ -20,7 +20,8 @@ This project is a React-based code editor that provides a user-friendly interfac
 In the project directory, you can run:
 
 ### `npm start`
-
+or using docker:
+### `docker run -d -p 3000:3000 devwrite`
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
